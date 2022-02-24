@@ -1,0 +1,402 @@
+2021-12-1 17:22:11,  ########## Init Config File ##########
+2021-12-1 17:22:11,  Dumpthread is nil,using default value 4
+
+2021-12-1 17:22:11,  Loadthread is nil,using default value 10
+
+2021-12-1 17:22:11,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-1 17:22:11,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-1 17:22:11,  
+2021-12-1 17:22:11,  ########依赖环境检查########
+2021-12-1 17:22:11,  ########依赖环境检查########
+2021-12-1 17:22:48,  ########## Init Config File ##########
+2021-12-1 17:22:48,  Dumpthread is nil,using default value 4
+
+2021-12-1 17:22:48,  Loadthread is nil,using default value 10
+
+2021-12-1 17:22:48,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-1 17:22:48,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-1 17:22:48,  
+2021-12-1 17:22:48,  ########依赖环境检查########
+2021-12-1 17:22:48,  ########依赖环境检查########
+2021-12-6 11:48:13,  ########## Init Config File ##########
+2021-12-6 11:48:13,  Dumpthread is nil,using default value 4
+
+2021-12-6 11:48:13,  Loadthread is nil,using default value 10
+
+2021-12-6 11:48:13,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-6 11:48:13,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-6 11:48:13,  
+2021-12-6 11:48:13,  ########依赖环境检查########
+2021-12-6 11:48:13,  ########依赖环境检查########
+2021-12-6 11:48:27,  ########## Init Config File ##########
+2021-12-6 11:48:27,  Dumpthread is nil,using default value 4
+
+2021-12-6 11:48:27,  Loadthread is nil,using default value 10
+
+2021-12-6 11:48:27,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-6 11:48:27,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-6 11:48:27,  
+2021-12-6 11:48:27,  ########依赖环境检查########
+2021-12-6 11:48:27,  ########依赖环境检查########
+2021-12-6 11:48:50,  ########## Init Config File ##########
+2021-12-6 11:48:50,  Dumpthread is nil,using default value 4
+
+2021-12-6 11:48:50,  Loadthread is nil,using default value 10
+
+2021-12-6 11:48:50,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-6 11:48:50,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-6 11:48:50,  
+2021-12-6 11:48:50,  ########依赖环境检查########
+2021-12-6 11:48:50,  ########依赖环境检查########
+2021-12-6 11:48:53,  ########## Init Config File ##########
+2021-12-6 11:48:53,  Dumpthread is nil,using default value 4
+
+2021-12-6 11:48:53,  Loadthread is nil,using default value 10
+
+2021-12-6 11:48:53,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-6 11:48:53,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-6 11:48:53,  
+2021-12-6 11:48:53,  ########依赖环境检查########
+2021-12-6 11:48:53,  ########依赖环境检查########
+2021-12-6 11:49:58,  ########## Init Config File ##########
+2021-12-6 11:49:58,  Dumpthread is nil,using default value 4
+
+2021-12-6 11:49:58,  Loadthread is nil,using default value 10
+
+2021-12-6 11:49:58,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-6 11:49:58,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-6 11:49:58,  
+2021-12-6 11:49:58,  ########依赖环境检查########
+2021-12-6 11:49:58,  ########依赖环境检查########
+2021-12-6 11:51:24,  ########## Init Config File ##########
+2021-12-6 11:51:24,  Dumpthread is nil,using default value 4
+
+2021-12-6 11:51:24,  Loadthread is nil,using default value 10
+
+2021-12-6 11:51:24,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-6 11:51:24,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-6 11:51:24,  
+2021-12-6 11:51:24,  ########依赖环境检查########
+2021-12-6 11:51:24,  ########依赖环境检查########
+2021-12-6 11:53:4,  ########## Init Config File ##########
+2021-12-6 11:54:34,  ########## Init Config File ##########
+2021-12-6 11:55:20,  ########## Init Config File ##########
+2021-12-6 11:55:30,  ########## Init Config File ##########
+2021-12-6 11:55:33,  ########## Init Config File ##########
+2021-12-6 12:5:1,  ########## Init Config File ##########
+2021-12-6 12:5:1,  Dumpthread is nil,using default value 4
+
+2021-12-6 12:5:1,  Loadthread is nil,using default value 10
+
+2021-12-6 12:5:1,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-6 12:5:1,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-6 12:5:1,  
+2021-12-6 12:5:1,  ########依赖环境检查########
+2021-12-6 12:5:1,  ########依赖环境检查########
+2021-12-6 12:6:58,  ########## Init Config File ##########
+2021-12-6 12:6:58,  Dumpthread is nil,using default value 4
+
+2021-12-6 12:6:58,  Loadthread is nil,using default value 10
+
+2021-12-6 12:6:58,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-6 12:6:58,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-6 12:6:58,  
+2021-12-6 12:6:58,  ########依赖环境检查########
+2021-12-6 12:6:58,  ########依赖环境检查########
+2021-12-6 12:7:4,  ########## Init Config File ##########
+2021-12-6 12:7:4,  Dumpthread is nil,using default value 4
+
+2021-12-6 12:7:4,  Loadthread is nil,using default value 10
+
+2021-12-6 12:7:4,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-6 12:7:4,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-6 12:7:4,  
+2021-12-6 12:7:4,  ########依赖环境检查########
+2021-12-6 12:7:4,  ########依赖环境检查########
+2021-12-6 12:7:48,  ########## Init Config File ##########
+2021-12-6 12:7:48,  Dumpthread is nil,using default value 4
+
+2021-12-6 12:7:48,  Loadthread is nil,using default value 10
+
+2021-12-6 12:7:48,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-6 12:7:48,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-6 12:7:48,  
+2021-12-6 12:7:48,  ########依赖环境检查########
+2021-12-6 12:7:48,  ########依赖环境检查########
+2021-12-6 12:7:49,  ########## Init Config File ##########
+2021-12-6 12:7:49,  Dumpthread is nil,using default value 4
+
+2021-12-6 12:7:49,  Loadthread is nil,using default value 10
+
+2021-12-6 12:7:49,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-6 12:7:49,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-6 12:7:49,  
+2021-12-6 12:7:49,  ########依赖环境检查########
+2021-12-6 12:7:49,  ########依赖环境检查########
+2021-12-6 12:7:52,  ########## Init Config File ##########
+2021-12-6 12:7:52,  Dumpthread is nil,using default value 4
+
+2021-12-6 12:7:52,  Loadthread is nil,using default value 10
+
+2021-12-6 12:7:52,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-6 12:7:52,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-6 12:7:52,  
+2021-12-6 12:7:52,  ########依赖环境检查########
+2021-12-6 12:7:52,  ########依赖环境检查########
+2021-12-6 12:7:58,  ########## Init Config File ##########
+2021-12-6 12:8:3,  ########## Init Config File ##########
+2021-12-6 13:20:4,  ########## Init Config File ##########
+2021-12-8 11:10:45,  ########## Init Config File ##########
+2021-12-8 11:10:45,  Dumpthread is nil,using default value 4
+
+2021-12-8 11:10:45,  Loadthread is nil,using default value 10
+
+2021-12-8 11:10:45,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-8 11:10:45,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-8 11:10:45,  
+2021-12-8 11:10:46,  ########依赖环境检查########
+2021-12-10 17:0:22,  ########## Init Config File ##########
+2021-12-10 17:0:22,  Dumpthread is nil,using default value 4
+
+2021-12-10 17:0:22,  Loadthread is nil,using default value 10
+
+2021-12-10 17:0:22,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-10 17:0:22,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-10 17:0:22,  
+2021-12-10 17:0:22,  ############# Qdump进行数据备份 #############
+2021-12-10 17:0:22,  准备开始download数据，由于download数据时间长，建议重新开一个窗口 tail -f mydump.log
+2021-12-10 17:0:22,  Qdump --user root --password E6zowpbawn -h 10.10.30.70 -P 32120 --regex '^(?!(information_schema\.|performance_schema\.|sys\.|mysql\.))' --triggers --events --routines --threads 1 --less-locking --build-empty-files --rows 10000 --verbose 3 --outputdir /Users/anderalex/go/src/Qdts/databackup --logfile /Users/anderalex/go/src/Qdts/Qdump.log
+2021-12-10 17:0:22,  [Info]: 进行表统计任务拆分，表总量为12个,拆分为16个任务,每个job统计0个表的行数
+2021-12-10 17:0:23,  [Info]: All db rows count is 1000010
+2021-12-22 17:45:44,  ########## Init Config File ##########
+2021-12-22 17:45:44,  Dumpthread is nil,using default value 4
+
+2021-12-22 17:45:44,  Loadthread is nil,using default value 10
+
+2021-12-22 17:45:44,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-22 17:45:44,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-22 17:45:44,  
+2021-12-22 17:45:44,  #############进行数据行数校验暂不支持花里花哨的数据库名称，如`testdb 1` ,'testdbv1.0' etc. 
+2021-12-22 17:45:44,  [Info]: 进行表统计任务拆分，表总量为19个,拆分为16个任务,每个job统计1个表的行数
+2021-12-22 17:45:44,  [Info]: 进行表统计任务拆分，表总量为43个,拆分为16个任务,每个job统计2个表的行数
+2021-12-22 17:45:44,  [Error]: table `test`.`sbtest3` not equal , src is 100000, dst is 0 
+2021-12-22 17:45:44,  [Error]: table `jinxiongmao`.`tb_news_content` not equal , src is 75218, dst is 0 
+2021-12-22 17:45:44,  [Error]: table `test`.`sbtest8` not equal , src is 100000, dst is 0 
+2021-12-22 17:45:44,  [Error]: table `rr`.`t1` not equal , src is 2, dst is 0 
+2021-12-22 17:45:44,  [Messege]: `ch-ch`.`abc a` 数据校验通过,行数统计值: 0
+2021-12-22 17:45:44,  [Messege]: `ch-ch`.`abc/a` 数据校验通过,行数统计值: 0
+2021-12-22 17:45:44,  [Error]: table `test`.`sbtest10` not equal , src is 10, dst is 0 
+2021-12-22 17:45:44,  [Messege]: `jinxiongmao`.`tb_news_content_copy1` 数据校验通过,行数统计值: 0
+2021-12-22 17:45:44,  [Error]: table `test`.`sbtest9` not equal , src is 7, dst is 0 
+2021-12-22 17:45:44,  [Error]: table `test`.`sbtest1` not equal , src is 100000, dst is 0 
+2021-12-22 17:45:44,  [Error]: table `test`.`sbtest6` not equal , src is 100000, dst is 0 
+2021-12-22 17:45:44,  [Error]: table `a`.`sbtest1` not equal , src is 1, dst is 0 
+2021-12-22 17:45:44,  [Messege]: `ch-ch`.`abc-a` 数据校验通过,行数统计值: 0
+2021-12-22 17:45:44,  [Messege]: `ch-ch`.`abc.a` 数据校验通过,行数统计值: 0
+2021-12-22 17:45:44,  [Error]: table `test`.`sbtest5` not equal , src is 100000, dst is 0 
+2021-12-22 17:45:44,  [Error]: table `test`.`sbtest2` not equal , src is 100000, dst is 0 
+2021-12-22 17:45:44,  [Error]: table `test`.`sbtest4` not equal , src is 100000, dst is 0 
+2021-12-22 17:45:44,  [Error]: table `test`.`sbtest7` not equal , src is 100000, dst is 0 
+2021-12-22 17:45:44,  [Error]: table `test`.`t1` not equal , src is 9, dst is 0 
+2021-12-22 17:45:44,  数据校验不通过,有14张表数据不一致
+2021-12-22 17:45:58,  ########## Init Config File ##########
+2021-12-22 17:45:58,  Dumpthread is nil,using default value 4
+
+2021-12-22 17:45:58,  Loadthread is nil,using default value 10
+
+2021-12-22 17:45:58,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-22 17:45:58,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-22 17:45:58,  
+2021-12-22 17:45:58,  ########## 配置下游数据库到上游数据库到MASTER,SLAVE关系 ##########
+2021-12-22 17:45:58,  [Debug]: cat /Users/anderalex/go/src/Qdts/databackup/metadata| grep -v Started | grep -v Finished | grep -v "SHOW MASTER STATUS" | grep -v "Log:" | grep -v "Pos" | tr "\n" " " | awk -F "GTID:" '{print $2}' | awk -F "SHOW SLAVE STATUS" '{print$1}' | sed s/[[:space:]]//g
+2021-12-22 17:45:58,  增量同步运行状态is not OK, slave_io_running=No,slave_sql_running=Yes
+2021-12-22 17:46:9,  ########## Init Config File ##########
+2021-12-22 17:46:9,  Dumpthread is nil,using default value 4
+
+2021-12-22 17:46:9,  Loadthread is nil,using default value 10
+
+2021-12-22 17:46:9,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-22 17:46:9,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-22 17:46:9,  
+2021-12-22 17:46:17,  ########## Init Config File ##########
+2021-12-22 17:46:17,  Dumpthread is nil,using default value 4
+
+2021-12-22 17:46:17,  Loadthread is nil,using default value 10
+
+2021-12-22 17:46:17,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-22 17:46:17,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-22 17:46:17,  
+2021-12-22 17:46:24,  ########## Init Config File ##########
+2021-12-22 17:46:24,  Dumpthread is nil,using default value 4
+
+2021-12-22 17:46:24,  Loadthread is nil,using default value 10
+
+2021-12-22 17:46:24,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-22 17:46:24,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-22 17:46:24,  
+2021-12-22 17:46:27,  ########## Init Config File ##########
+2021-12-22 17:46:27,  Dumpthread is nil,using default value 4
+
+2021-12-22 17:46:27,  Loadthread is nil,using default value 10
+
+2021-12-22 17:46:27,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-22 17:46:27,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-22 17:46:27,  
+2021-12-22 17:47:19,  ########## Init Config File ##########
+2021-12-22 17:47:19,  Dumpthread is nil,using default value 4
+
+2021-12-22 17:47:19,  Loadthread is nil,using default value 10
+
+2021-12-22 17:47:19,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-22 17:47:19,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2021-12-22 17:47:19,  
+2022-1-10 10:9:55,  ########## Init Config File ##########
+2022-1-10 10:9:55,  Dumpthread is nil,using default value 4
+
+2022-1-10 10:9:55,  Loadthread is nil,using default value 10
+
+2022-1-10 10:9:55,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2022-1-10 10:9:55,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2022-1-10 10:9:55,  
+2022-1-10 10:9:55,  连接10.10.30.70@30032失败
+2022-1-10 10:10:52,  ########## Init Config File ##########
+2022-1-10 10:10:52,  Dumpthread is nil,using default value 4
+
+2022-1-10 10:10:52,  Loadthread is nil,using default value 10
+
+2022-1-10 10:10:52,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2022-1-10 10:10:52,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2022-1-10 10:10:52,  
+2022-1-10 10:10:52,  连接10.10.30.70@30032失败
+2022-1-10 10:12:8,  ########## Init Config File ##########
+2022-1-10 10:12:8,  Dumpthread is nil,using default value 4
+
+2022-1-10 10:12:8,  Loadthread is nil,using default value 10
+
+2022-1-10 10:12:8,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2022-1-10 10:12:8,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2022-1-10 10:12:8,  
+2022-1-10 10:12:8,  连接10.10.30.70@30032失败
+2022-1-10 10:34:58,  ########## Init Config File ##########
+2022-1-10 10:34:58,  Dumpthread is nil,using default value 4
+
+2022-1-10 10:34:58,  Loadthread is nil,using default value 10
+
+2022-1-10 10:34:58,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2022-1-10 10:34:58,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2022-1-10 10:34:58,  
+2022-1-10 10:34:58,  连接10.10.30.70@30032失败
+2022-1-10 13:59:20,  ########## Init Config File ##########
+2022-1-10 13:59:20,  Dumpthread is nil,using default value 4
+
+2022-1-10 13:59:20,  Loadthread is nil,using default value 10
+
+2022-1-10 13:59:20,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2022-1-10 13:59:20,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2022-1-10 13:59:20,  
+2022-1-10 13:59:20,  连接10.10.30.70@30032失败
+2022-1-10 14:1:22,  ########## Init Config File ##########
+2022-1-10 14:1:22,  Dumpthread is nil,using default value 4
+
+2022-1-10 14:1:22,  Loadthread is nil,using default value 10
+
+2022-1-10 14:1:22,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2022-1-10 14:1:22,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2022-1-10 14:1:22,  
+2022-1-10 14:1:22,  连接10.10.30.70@30032失败
+2022-1-10 14:1:24,  ########## Init Config File ##########
+2022-1-10 14:1:24,  Dumpthread is nil,using default value 4
+
+2022-1-10 14:1:24,  Loadthread is nil,using default value 10
+
+2022-1-10 14:1:24,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+
+2022-1-10 14:1:24,  数据checksum校验并行协程数is nil,using default value 16(cpu num*2)
+
+2022-1-10 14:1:24,  
+2022-1-10 14:1:24,  连接10.10.30.70@30032失败
+2022-1-10 14:1:53,  ########## Init Config File ##########
+2022-1-10 14:1:53,  Dumpthread is nil,using default value 4
+2022-1-10 14:1:53,  Loadthread is nil,using default value 10
+2022-1-10 14:1:53,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+2022-1-10 14:1:53,  数据checksum校验并行协程数is nil,using default value 16(cpu num*2)
+2022-1-10 14:1:53,  
+2022-1-10 14:1:53,  连接10.10.30.70@30032失败
+2022-1-10 14:18:35,  ########## Init Config File ##########
+2022-1-10 14:18:35,  Dumpthread is nil,using default value 4
+2022-1-10 14:18:35,  Loadthread is nil,using default value 10
+2022-1-10 14:18:35,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+2022-1-10 14:18:35,  数据checksum校验并行协程数is nil,using default value 16(cpu num*2)
+2022-1-10 14:18:35,  
+2022-1-10 14:18:35,  连接10.10.30.70@30032失败
+2022-2-23 18:13:4,  ########## Init Config File ##########
+2022-2-23 18:13:4,  Dumpthread is nil,using default value 4
+2022-2-23 18:13:4,  Loadthread is nil,using default value 10
+2022-2-23 18:13:4,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+2022-2-23 18:13:4,  数据checksum校验并行协程数is nil,using default value 16(cpu num*2)
+2022-2-23 18:13:4,  
+2022-2-23 18:13:17,  ########## Init Config File ##########
+2022-2-23 18:13:17,  Dumpthread is nil,using default value 4
+2022-2-23 18:13:17,  Loadthread is nil,using default value 10
+2022-2-23 18:13:17,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+2022-2-23 18:13:17,  数据checksum校验并行协程数is nil,using default value 16(cpu num*2)
+2022-2-23 18:13:17,  
+2022-2-23 18:13:17,  ########依赖环境检查########
