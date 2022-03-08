@@ -183,6 +183,8 @@ func Process(n int) (tablecount map[string]int) {
 		}
 	}
 
+	// 清空Dbtable
+	DbTable = DbTable[0:0]
 	return tableCount
 }
 

@@ -42,5 +42,6 @@
   "TableCheckConfig": {
     "tablecountsthread": "",
     "Tablechecksumthread": ""
-  }
+  },
+  "IsTest": true
 }
