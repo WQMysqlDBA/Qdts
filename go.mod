@@ -5,6 +5,7 @@ go 1.17
 require (
 	github.com/fatih/color v1.13.0
 	github.com/go-sql-driver/mysql v1.6.0
+	golang.org/x/text v0.3.7
 )
 
 require (

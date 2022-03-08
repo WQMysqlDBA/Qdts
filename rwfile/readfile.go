@@ -3,6 +3,8 @@ package rwfile
 import (
 	"bufio"
 	"fmt"
+	"golang.org/x/text/encoding/simplifiedchinese"
+	"golang.org/x/text/transform"
 	"io/ioutil"
 	"os"
 )
@@ -12,7 +14,8 @@ func ReadFile(filename string) *bufio.Scanner {
 		panic(err)
 	} else {
 		//defer file.Close()  -- 这里不能defer close  close可能返回一个空
-		scanner := bufio.NewScanner(file)
+		decoder := transform.NewReader(file, simplifiedchinese.GBK.NewDecoder())
+		scanner := bufio.NewScanner(decoder)
 		return scanner
 	}
 }

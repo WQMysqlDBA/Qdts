@@ -10,13 +10,17 @@ import (
 //var dstconn *sql.DB
 
 //Modify data adaptively
-func ModifyData(dumpdir string) {
+func ModifyData(dumpdir string, needrewrite bool) {
 	text := "############# Modify data adaptively #############\n" +
 		"  1、自动将MyISAM、MEMORY引擎表转换为InnoDB表\n" +
 		"  2、对于Mysql 5.6 版本 `ROW_FORMAT=FIXED` 表属性已经在5.7以后的版本废弃，自动修改为5.7以后的默认值"
 	PrintLog(text)
+	if needrewrite {
+		rewriteschemafile(dumpdir)
+	}
 	modifyRowFixed(dumpdir)
 	modifyInnodbtable(dumpdir) // 执行完这一步，mydumper读取修改的文件有问题，直接在这里把对应的内容在数据库执行一下吧。
+
 }
 
 func modifyRowFixed(dir string) {
@@ -167,6 +171,39 @@ func modifyInnodbtable(dir string) {
 		}
 	}
 
+}
+
+func rewriteschemafile(dir string) {
+	cmd1 := "ls " + dir + "  | grep 'schema.sql'|wc -l"
+	out1, _ := strconv.Atoi(string(Cmd(cmd1, true, false)))
+
+	if out1 == 1 {
+		//out1 恒为0  所以这里怎么改？ 直接注释掉对out1的判断逻辑即可
+		//if out1 == 0 {
+		PrintLog("当前备份的数据库不存在表")
+	} else {
+		cmd2 := "ls " + dir + "  | grep 'schema.sql'"
+		out2 := string(Cmd(cmd2, true, false))
+		tableschemafile := strings.Split(out2, "\n")
+		for _, v := range tableschemafile {
+			var rowsContext []string
+			if v != "" {
+				schemaFile := dir + "/" + v
+				rows := rwfile.ReadFile(schemaFile)
+				for rows.Scan() {
+					msg := rows.Text()
+					rowsContext = append(rowsContext, msg)
+				}
+				schemaSQL := strings.Join(rowsContext, "\n")
+				schemaSQL = schemaSQL + "\n"
+				// 真相了，C++ 代码中 根据';\n来拆解dump文件'，我这么拼肯定不对。。。。。
+				if ok := rwfile.WriteFile(schemaFile, schemaSQL); ok {
+					PrintLog(fmt.Sprintf("修改table schema文件: %s success，内容为: %s", schemaFile, schemaSQL))
+				}
+			}
+		}
+
+	}
 }
 
 /* 如下是对备份文件对说明 */

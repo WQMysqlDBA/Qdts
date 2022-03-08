@@ -50,15 +50,18 @@ func AllRowsCount(ip, port, user, passwd string, t int, ignorecountdb []string) 
 	for result.Next() {
 		_ = result.Scan(&Allrows)
 	}
-	PrintLog(fmt.Sprintf("[Info]: All db rows count is %v", Allrows))
 
 	ret, err = strconv.Atoi(Allrows)
 	if err != nil {
 		log.Println(err.Error())
 	}
 	if ret == 0 {
+		PrintLog(fmt.Sprintf("[Info]: All db rows count is %v", "No values. No tables to dump"))
 		return 1
+	} else {
+		PrintLog(fmt.Sprintf("[Info]: All db rows count is %v", ret))
 	}
+
 	return ret
 }
 

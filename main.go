@@ -3,13 +3,12 @@ package main
 import (
 	"Qdts/color"
 	"Qdts/globalconfig"
-	"Qdts/license"
 	"Qdts/mpkg"
+	"Qdts/signaltest"
 	"Qdts/storage"
 	"flag"
 	"fmt"
 	_ "github.com/go-sql-driver/mysql" //如果只希望导入包，而不使用包内部的数据时，可以使用匿名导入包。具体的格式如下：import _ "包的路径"
-
 	"log"
 	"os"
 	"strconv"
@@ -49,31 +48,31 @@ var (
 	DumpThread, LoadThread                                                                         string
 	Dumploglevel, Loadloglevel, Tablecountsthread                                                  int
 	//ReplIgnoreDB                                                                                   []string
+	IsTest         bool
+	SrcVer, DstVer string
+	MyPumpCUSQL    string
+	CFG            *globalconfig.ConfigInfo
+	DumpfileDir    string
 )
 
-var SrcVer, DstVer string
-var MyPumpCUSQL string
-var CFG *globalconfig.ConfigInfo
-var DumpfileDir string
+//var SrcVer, DstVer string
+//var MyPumpCUSQL string
+//var CFG *globalconfig.ConfigInfo
+//var DumpfileDir string
 
 func DoSrcDB() {
 	//收集上游数据库的统计信息
 	mpkg.PrintLog("#############收集上游数据库的统计信息#############")
 	_, _ = mpkg.ConnectDB(SrchostIp, SrchostPort, SrcUser, SrcUserPasswd)
 	defer mpkg.CloseDB()
-
 	_ = mpkg.CountDBSize()
 	_ = mpkg.GetVET()
-
 	mpkg.GetVariable("src")
-
 	storage.UpdatePos(0)
-
 }
 
-func modify() {
-	// Modify
-	mpkg.ModifyData(DumpfileDir)
+func modify(needrewrite bool) {
+	mpkg.ModifyData(DumpfileDir, needrewrite)
 }
 
 func createdstuser56_57() {
@@ -124,15 +123,20 @@ func mysqlpump() {
 }
 
 func main() {
-	var filepath, stepstep, steponly string
+	signaltest.InitSignal()
+	var filepath, stepstep, steponly, getinfo string
+
 	SrcConn := make(map[string]string)
 	DstConn := make(map[string]string)
 	Welcome()
 	/* 验证license */
-	license.Checklicense()
+	//license.Checklicense()
+
 	flag.StringVar(&filepath, "f", "dts_config.json", "配置文件名称，建议是全路径")
 	flag.StringVar(&stepstep, "step", "0", _stepusageinfo)
 	flag.StringVar(&steponly, "steponly", "no", "是否只执行输入的步骤,默认会从输入的步骤一直往后执行")
+	flag.StringVar(&getinfo, "CollectInfo", "", "收集源端/目标端数据库端统计信息 值为 Src/Dst 忽略大小写")
+	needrewriteschema := flag.Bool("rewriteschema", false, "输入此flag即为true,默认为false 是否需要重写所有的表定义文件，以解决schemal file中文乱码问题")
 	flag.Parse()
 
 	s1, _ := os.Getwd()
@@ -188,6 +192,8 @@ func main() {
 	/* 复制过滤数据库 */
 	//ReplIgnoreDB = connInfo.ReplIgnoreDB
 
+	IsTest = connInfo.IsTest
+
 	/* 如果配置文件中不写dumper线程和loader线程的个数 对这两个参数进行初始化 */
 	if DumpThread == "" {
 		DumpThread = "4"
@@ -222,6 +228,19 @@ func main() {
 	/* 这里实现脚本执行到了哪一步*/
 	/* 这里实现step执行步骤 */
 	storage.Initialize()
+
+	if getinfo != "" {
+		a := strings.ToLower(getinfo)
+		if a == "src" {
+			DoSrcDB()
+		} else if a == "dst" {
+			DoDstDB()
+		} else {
+			mpkg.PrintLog("不合法的参数,正确的参数为 src/dst(忽略大小写)")
+		}
+		mpkg.PrintLog(fmt.Sprintf("收集%s统计信息完毕,exit", a))
+		os.Exit(0)
+	}
 
 	if stepstep != "0" {
 		/* 优先以命令行参数为主 */
@@ -266,7 +285,7 @@ func main() {
 				_ = mpkg.CountDBSize()
 				mpkg.CloseDB()
 			}
-			step3()
+			step3(*needrewriteschema)
 			//fmt.Printf(strconv.Itoa(i))
 			ifstepOnce(steponce)
 		case 4:
@@ -315,7 +334,6 @@ func step2() {
 		mysqlpump()
 	}
 	storage.UpdatePos(2)
-	DoSrcDB()
 }
 
 func step1() {
@@ -325,13 +343,14 @@ func step1() {
 		mpkg.Color(102, "* Error")
 		log.Println(err)
 	}
-	_ = mpkg.MyDumper(SrchostIp, SrchostPort, SrcUser, SrcUserPasswd, BackUpDB, IngoreDB, DumpThread, Dumploglevel, DumpfileDir, CFG.MydumperConfig.TableRowsSplit, t)
+
+	_ = mpkg.MyDumper(SrchostIp, SrchostPort, SrcUser, SrcUserPasswd, BackUpDB, IngoreDB, DumpThread, Dumploglevel, DumpfileDir, CFG.MydumperConfig.TableRowsSplit, t, CFG.IsTest)
 	storage.UpdatePos(1)
 }
 
-func step3() {
+func step3(nr bool) {
 	/* modify data dump file */
-	modify()
+	modify(nr)
 	storage.UpdatePos(3)
 }
 

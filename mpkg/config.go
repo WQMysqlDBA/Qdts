@@ -20,6 +20,7 @@ type ConfigInfo struct {
 	MydumperConfig                    *MydumperConfig
 	MyloaderConfig                    *MyloaderConfig
 	Tablecountsthread                 int
+	IsTest                            bool
 }
 
 type MydumperConfig struct {
