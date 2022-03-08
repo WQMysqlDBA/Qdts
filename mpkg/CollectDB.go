@@ -89,7 +89,6 @@ func GetDBNAME() (db []string) {
 
 func CountDBSize() (err error) {
 	dbname := GetDBNAME()
-
 	for _, v := range dbname {
 		// Statistics database size 统计数据库表的大小 转换成G显示
 		sqlText := "SELECT  TABLE_SCHEMA,table_name,ROUND((DATA_LENGTH+INDEX_LENGTH)/1024/1024/1024,4)as G,ENGINE" +
@@ -106,8 +105,7 @@ func CountDBSize() (err error) {
 			return err
 		}
 		type tableSize struct {
-			tableSchema, tableName, tableEngine string
-			tableSize                           string //这里如果是null值会scan报错
+			tableSchema, tableName, tableEngine, tableSize string //这里如果是null值会scan报错
 		}
 
 		for rows.Next() {
@@ -118,7 +116,7 @@ func CountDBSize() (err error) {
 				fmt.Printf("scan failed, err:%v\n", err)
 				return err
 			}
-			fmt.Printf("database_name:%v,table_name:%v,table_size(G):%v,table_engin:%v\n", t.tableSchema, t.tableName, t.tableSize, t.tableEngine)
+			PrintLog(fmt.Sprintf("database_name:%v,  table_name:%v,  table_size(G):%v,  table_engin:%v\n", t.tableSchema, t.tableName, t.tableSize, t.tableEngine))
 			if !(t.tableEngine == "InnoDB") {
 				i++
 				// 是否在这里加一个 slice,在往对端数据库回灌数据的时候，先判断下有没有非Innodb表，并将数据库和表名称记录下来。后面对sql文件做处理。
@@ -129,13 +127,42 @@ func CountDBSize() (err error) {
 				Color(101, rmt)
 				HasnotInnodbtable = true
 				//t1:=NewUnInnodbTableInfo(t.tableSchema,t.tableName,t.tableEngine)
+				// 不转 memory引擎的表的话这样改
+				//if !strings.EqualFold(t.tableEngine,"MEMORY") {
+				//	info := t.tableSchema + "===" + t.tableName + "===" + t.tableEngine
+				//	UnInnodbTableInfo = append(UnInnodbTableInfo, info)
+				//}
 				info := t.tableSchema + "===" + t.tableName + "===" + t.tableEngine
 				UnInnodbTableInfo = append(UnInnodbTableInfo, info)
 			}
 		}
 
 	}
+	// 统计全部的数据库的大小 计算整个数据库的大小
+	PrintLog("================================ TOTAL SIZE ================================")
+	sumsql := "select SUM(ROUND(DATA_LENGTH+INDEX_LENGTH))/1024/1024/1024 AS TOTAL_SIZE_G " +
+		"FROM " +
+		"information_schema.tables " +
+		"WHERE " +
+		"ENGINE is not null"
 
+	type DBSize struct {
+		totalsize string
+	}
+	r, err := DB.Query(sumsql)
+	if err != nil {
+		fmt.Println(err)
+		return err
+	}
+	for r.Next() {
+		var t DBSize
+		err := r.Scan(&t.totalsize)
+		if err != nil {
+			fmt.Printf("scan failed, err:%v\n", err)
+			return err
+		}
+		PrintLog(fmt.Sprintf("整个数据库数据量大小统计: %s G", t.totalsize))
+	}
 	return
 }
 func GetVET() (err error) {
@@ -228,7 +255,7 @@ func GetVET() (err error) {
 				fmt.Printf("scan failed, err:%v\n", err)
 				return err
 			}
-			fmt.Printf("DBNAME: %v,  FUNCNAME: %v,  DEFINER: %v\n", p.dbName, p.funcName, p.deFiner)
+			PrintLog(fmt.Sprintf("DBNAME: %v,  FUNCNAME: %v,  DEFINER: %v\n", p.dbName, p.funcName, p.deFiner))
 			k++
 		}
 	}
@@ -257,7 +284,7 @@ func GetVET() (err error) {
 				fmt.Printf("scan failed, err:%v\n", err)
 				return err
 			}
-			fmt.Printf("DBNAME: %v,  EVENTNAME: %v,  DEFINER: %v\n", q.eventSchema, q.eventName, q.deFiner)
+			PrintLog(fmt.Sprintf("DBNAME: %v,  EVENTNAME: %v,  DEFINER: %v\n", q.eventSchema, q.eventName, q.deFiner))
 			l++
 		}
 	}
@@ -287,8 +314,7 @@ func GetVET() (err error) {
 				fmt.Printf("scan failed, err:%v\n", err)
 				return err
 			}
-			text := fmt.Sprintf("DBNAME: %v,  TRIGGER NAME: %v,  DEFINER: %v\n", q.triggerSchema, q.triggerName, q.deFiner)
-			PrintLog(text)
+			PrintLog(fmt.Sprintf("DBNAME: %v,  TRIGGER NAME: %v,  DEFINER: %v\n", q.triggerSchema, q.triggerName, q.deFiner))
 			m++
 		}
 	}

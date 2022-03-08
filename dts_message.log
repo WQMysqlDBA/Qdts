@@ -400,3 +400,17 @@
 2022-2-23 18:13:17,  数据checksum校验并行协程数is nil,using default value 16(cpu num*2)
 2022-2-23 18:13:17,  
 2022-2-23 18:13:17,  ########依赖环境检查########
+2022-2-27 22:59:45,  ########## Init Config File ##########
+2022-2-27 22:59:45,  Dumpthread is nil,using default value 4
+2022-2-27 22:59:45,  Loadthread is nil,using default value 10
+2022-2-27 22:59:45,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+2022-2-27 22:59:45,  数据checksum校验并行协程数is nil,using default value 16(cpu num*2)
+2022-2-27 22:59:45,  
+2022-2-27 22:59:45,  连接10.10.88.133@32684失败
+2022-2-27 23:2:8,  ########## Init Config File ##########
+2022-2-27 23:2:8,  Dumpthread is nil,using default value 4
+2022-2-27 23:2:8,  Loadthread is nil,using default value 10
+2022-2-27 23:2:8,  数据行数校验并行协程数is nil,using default value 16(cpu num*2)
+2022-2-27 23:2:8,  数据checksum校验并行协程数is nil,using default value 16(cpu num*2)
+2022-2-27 23:2:8,  
+2022-2-27 23:2:8,  连接10.10.88.133@32684失败

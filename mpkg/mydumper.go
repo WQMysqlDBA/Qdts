@@ -18,6 +18,8 @@ const (
 	_dump      = "Qdump"
 	_load      = "Qload"
 	_mysqlpump = "mysqlpump"
+	_QdumpLog  = "Qdump.log"
+	_IsTest    = " --no-data"
 )
 
 var SrcDBAllROWS int
@@ -68,7 +70,7 @@ func CheckMytools() {
 	}
 }
 
-func MyDumper(ip, port, userName, password string, backupdb []string, ignoredb []string, dumperthread string, dumploglevel int, dumpfile string, tablerowssplit, tablecountsthreads int) (err error) {
+func MyDumper(ip, port, userName, password string, backupdb []string, ignoredb []string, dumperthread string, dumploglevel int, dumpfile string, tablerowssplit, tablecountsthreads int, istest bool) (err error) {
 	PrintLog("############# Qdump进行数据备份 #############")
 	bigVer := strings.Split(MySqlVersion, ".")[0] + "." + strings.Split(MySqlVersion, ".")[1]
 	// 如果是8.0以上的版本，需要先执行如下查询
@@ -128,9 +130,12 @@ func MyDumper(ip, port, userName, password string, backupdb []string, ignoredb [
 	PrintLog("准备开始download数据，由于download数据时间长，建议重新开一个窗口 tail -f mydump.log")
 	s1, _ := os.Getwd()
 	dump := _dump
-	cmd = dump + " --user " + userName + " --password " + password + " -h " + ip + " -P " + port + " --regex " + ignoreRegx + " --triggers --events --routines --threads " + dumperthread + " --less-locking --build-empty-files " + "--rows " + strconv.Itoa(tablerowssplit) + " --verbose " + strconv.Itoa(dumploglevel) + " --outputdir " + dumpfile + " --logfile " + s1 + "/Qdump.log"
-	//cmd = dump + " --user " + userName + " --password " + password + " -h " + ip + " -P " + port + " --regex " + ignoreRegx + " --triggers --events --routines --threads " + dumperthread + " --less-locking --build-empty-files --verbose " + strconv.Itoa(dumploglevel) + " --outputdir " + dumpfile
-
+	if istest {
+		cmd = dump + " --user " + userName + " --password " + password + " -h " + ip + " -P " + port + " --regex " + ignoreRegx + " --triggers --events --routines --threads " + dumperthread + " --less-locking --build-empty-files " + "--rows " + strconv.Itoa(tablerowssplit) + " --verbose " + strconv.Itoa(dumploglevel) + " --outputdir " + dumpfile + " --logfile " + s1 + "/" + _QdumpLog + _IsTest
+	} else {
+		cmd = dump + " --user " + userName + " --password " + password + " -h " + ip + " -P " + port + " --regex " + ignoreRegx + " --triggers --events --routines --threads " + dumperthread + " --less-locking --build-empty-files " + "--rows " + strconv.Itoa(tablerowssplit) + " --verbose " + strconv.Itoa(dumploglevel) + " --outputdir " + dumpfile + " --logfile " + s1 + "/" + _QdumpLog
+		//cmd = dump + " --user " + userName + " --password " + password + " -h " + ip + " -P " + port + " --regex " + ignoreRegx + " --triggers --events --routines --threads " + dumperthread + " --less-locking --build-empty-files --verbose " + strconv.Itoa(dumploglevel) + " --outputdir " + dumpfile
+	}
 	PrintLog(cmd)
 
 	dballrows = AllRowsCount(ip, port, userName, password, tablecountsthreads, ignoredb)
@@ -163,22 +168,22 @@ func canalctxread(ctx context.Context, dbip, dbport, dbuserName, dbpassword stri
 		select {
 		case <-ctx.Done():
 			flag := "Dump data complete..."
-			msg := fmt.Sprintf("** Progress Rate:  %s%d%%\n", jindutiao.TouchBar(100, 12), 100)
+			msg := fmt.Sprintf("** Progress Rate:  %s%d%% ", jindutiao.TouchBar(100, 12), 100)
 			Color(100, flag)
-			fmt.Println(msg)
+			log.Println(msg, fmt.Sprintf(" See logs in %s", _QdumpLog))
 			return
 		default:
 			flag := "Dumping data..."
 			nowread := mysqlstatus(dbip, dbport, dbuserName, dbpassword, "row_read")
-			progress_rate := (nowread - initread) * 100 / allrows // int类型不是很精确 不过还可以的
+			progress_rate := float32((nowread - initread) * 100 / allrows) // int类型不是很精确 不过还可以的
 			if progress_rate >= 100 {
 				progress_rate = 99
 			}
-			msg := fmt.Sprintf("** Progress Rate:  %s%d%%\n", jindutiao.TouchBar(progress_rate, 12), progress_rate)
+			msg := fmt.Sprintf("** Progress Rate:  %s%v%% ", jindutiao.TouchBar(int(progress_rate), 12), progress_rate)
 			Color(100, flag)
-			fmt.Println(msg)
+			log.Println(msg, fmt.Sprintf(" See logs in %s", _QdumpLog))
 		}
-		time.Sleep(1 * time.Second)
+		time.Sleep(2 * time.Second)
 	}
 }
 

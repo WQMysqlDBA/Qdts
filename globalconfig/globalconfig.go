@@ -28,6 +28,7 @@ type ConfigInfo struct {
 	MydumperConfig                    *MydumperConfig
 	MyloaderConfig                    *MyloaderConfig
 	TableCheckConfig                  *TableCheckConfig
+	IsTest                            bool
 }
 
 type MydumperConfig struct {

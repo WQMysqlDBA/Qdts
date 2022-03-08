@@ -23,13 +23,19 @@ import (
 //	return
 //}
 func MyLoader(srcconn map[string]string, dstip, dstport, dstUser, dspPasswd string, loadthread string, dumploglevel int, dumpfile string, tablecountThread int, ignoredb []string) (err error) {
+
+	cmdArgs_no_data := []string{"--user", dstUser, "--password", dspPasswd, "-h", dstip, "-P", dstport, "--directory", dumpfile, "--overwrite-tables", "--verbose", strconv.Itoa(dumploglevel), "--threads", loadthread, _IsTest}
+	cmd_no_data := _load
+
+	for _, v := range cmdArgs_no_data {
+		cmd_no_data = cmd_no_data + " " + v
+	}
+
 	cmdArgs := []string{"--user", dstUser, "--password", dspPasswd, "-h", dstip, "-P", dstport, "--directory", dumpfile, "--overwrite-tables", "--verbose", strconv.Itoa(dumploglevel), "--threads", loadthread}
 	cmd := _load
-	//cmd := "WQload"
 	for _, v := range cmdArgs {
 		cmd = cmd + " " + v
 	}
-	PrintLog(cmd)
 
 	var wait sync.WaitGroup
 	ctxinsert, stop := context.WithCancel(context.Background())
@@ -52,6 +58,13 @@ func MyLoader(srcconn map[string]string, dstip, dstport, dstUser, dspPasswd stri
 		canalctxinsert(ctxinsert, dstip, dstport, dstUser, dspPasswd, initinsert, all_rows)
 	}()
 
+	PrintLog(cmd_no_data)
+	ok_no_data := doload(_load, cmdArgs_no_data)
+	if ok_no_data != nil {
+		log.Fatal(err)
+	}
+
+	PrintLog(cmd)
 	ok := doload(_load, cmdArgs)
 	if ok != nil {
 		log.Fatal(err)
@@ -77,19 +90,19 @@ func canalctxinsert(ctx context.Context, dbip, dbport, dbuserName, dbpassword st
 			flag := "Import data complete..."
 			msg := fmt.Sprintf("** Progress Rate:  %s%d%%\n", jindutiao.TouchBar(100, 12), 100)
 			Color(100, flag)
-			fmt.Println(msg)
+			log.Println(msg)
 			return
 		default:
 			flag := "Importing data..."
 			nowinsert := mysqlstatus(dbip, dbport, dbuserName, dbpassword, "row_insert")
-			progress_rate := (nowinsert - initinsert) * 100 / allrows // int类型不是很精确 不过还可以的
+			progress_rate := float32((nowinsert - initinsert) * 100 / allrows) // int类型不是很精确 不过还可以的
 			if progress_rate >= 100 {
 				progress_rate = 99
 			}
-			msg := fmt.Sprintf("** Progress Rate:  %s%d%%\n", jindutiao.TouchBar(progress_rate, 12), progress_rate)
+			msg := fmt.Sprintf("** Progress Rate:  %s%v%%\n", jindutiao.TouchBar(int(progress_rate), 12), progress_rate)
 			Color(100, flag)
-			fmt.Println(msg)
+			log.Println(msg)
 		}
-		time.Sleep(1 * time.Second)
+		time.Sleep(2 * time.Second)
 	}
 }
