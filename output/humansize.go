@@ -1,51 +1,65 @@
 package output
 
+import (
+	"fmt"
+	"strconv"
+)
+
 type HumanOutput struct {
-	ByteSize int64
+	ByteSize float64
 }
 
 type HumanSizeOutput interface {
-	HumanByteSize() (h int64, s string)
+	HumanByteSize() (h float64, s string)
 }
 
-func NewHumanSizeMessage(s int64) (humansize int64, Unit string) {
+func NewHumanSizeMessage(s float64) (humansize float64, Unit string) {
 	var msg HumanSizeOutput
 	msg = NewHumanOutput(s)
 	humansize, Unit = msg.HumanByteSize()
 	return
 }
 
-func (HumanOutput *HumanOutput) HumanByteSize() (h int64, s string) {
+func (HumanOutput *HumanOutput) HumanByteSize() (h float64, s string) {
 	const (
 		kb = 1024
 		mb = 1024 * kb
 		gb = 1024 * mb
 		tb = 1024 * gb
+		pb = 1024 * tb
 	)
 
-	var humanSize int64
+	var humanSize float64
 	var humanUnit string
-	if HumanOutput.ByteSize > tb {
-		humanSize = HumanOutput.ByteSize / tb
+	if HumanOutput.ByteSize > pb {
+		humanSize = Decimal(HumanOutput.ByteSize / pb)
+		humanUnit = "Pib"
+	} else if HumanOutput.ByteSize > tb {
+		humanSize = Decimal(HumanOutput.ByteSize / tb)
 		humanUnit = "Tib"
 	} else if HumanOutput.ByteSize > gb {
-		humanSize = HumanOutput.ByteSize / gb
+		humanSize = Decimal(HumanOutput.ByteSize / gb)
 		humanUnit = "Gib"
 	} else if HumanOutput.ByteSize > mb {
-		humanSize = HumanOutput.ByteSize / mb
+		humanSize = Decimal(HumanOutput.ByteSize / mb)
 		humanUnit = "Mib"
 	} else if HumanOutput.ByteSize > kb {
-		humanSize = HumanOutput.ByteSize / kb
+		humanSize = Decimal(HumanOutput.ByteSize / kb)
 		humanUnit = "Kib"
 	} else {
-		humanSize = HumanOutput.ByteSize
+		humanSize = Decimal(HumanOutput.ByteSize)
 		humanUnit = "Bit"
 	}
 	return humanSize, humanUnit
 }
 
-func NewHumanOutput(bytesize int64) *HumanOutput {
+func NewHumanOutput(bytesize float64) *HumanOutput {
 	return &HumanOutput{
 		ByteSize: bytesize,
 	}
+}
+
+func Decimal(value float64) float64 {
+	value, _ = strconv.ParseFloat(fmt.Sprintf("%.2f", value), 64)
+	return value
 }

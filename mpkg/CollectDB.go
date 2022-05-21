@@ -119,7 +119,7 @@ func CountDBSize() (err error) {
 				return err
 			}
 			bytesize, _ := strconv.Atoi(t.tableSize)
-			size, unit := output.NewHumanSizeMessage(int64(bytesize))
+			size, unit := output.NewHumanSizeMessage(float64(bytesize))
 			PrintLog(fmt.Sprintf("database_name:%v,  table_name:%v,  table_size:%v %v,  table_engin:%v\n", t.tableSchema, t.tableName, size, unit, t.tableEngine))
 			if !(t.tableEngine == "InnoDB") {
 				i++
@@ -167,7 +167,7 @@ func CountDBSize() (err error) {
 			return err
 		}
 		bytesize, _ := strconv.Atoi(t.totalsize)
-		size, unit := output.NewHumanSizeMessage(int64(bytesize))
+		size, unit := output.NewHumanSizeMessage(float64(bytesize))
 		PrintLog(fmt.Sprintf("整个数据库数据量大小统计: %v %v", size, unit))
 
 	}
